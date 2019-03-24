@@ -23,3 +23,4 @@ Q2. During the my working hour, where should I head next after finishing each ri
 To answer the first question:  
 I simply create a simple plot that count the everage daily.
 
+![Screenshot](hour_heat_map.png)
