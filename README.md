@@ -15,6 +15,9 @@ Yellow Medallion Taxicabs - These are the famous NYC yellow taxis that provide t
 Solution assumptions:
 1. As a taxi driver, I have pretty flexible hours as to when to drive.
 2. I am driving a sedan, which means I could carry no more than 4 passengers at the same time.
+3. I ignore any public holiday or city events in June.
+4. I ignore city weather, which not available in our current data set.
+5. I also ignore heavy traffic period, and I assume the time lost in traffic is compensated by the tariff.
 
 In order to maximize income, two questions need to be answered:  
 Q1. What is the best working schedule per week?  
@@ -24,3 +27,8 @@ To answer the first question:
 I simply create a simple plot that count the everage daily.
 
 ![Screenshot](hour_heat_map.png)
+
+Based on this heatmap, the best time to work is during weekday evening. Although I have flexible hours, however, I prefer not to split 10 hours to many small intervals.   
+At the same time, I would not want to continue to work for more than 4 hours. As a result, I inital working schedule should look like these:
+- Tuesday or Friday from 18:00 to 20:00
+- Wednesday and Thursday from 18:00 to 22:00
