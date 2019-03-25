@@ -74,9 +74,7 @@ As a result, we will need to use machine learning algorithms so that we will fin
 In other words, we will be building the following model:  
 - f(time, current_location, target_location, weather, etc) = reward
 
-
-
-
+Finally, we a demand heat map with geographic integration would be the most helpful, since I can drive towards a general busy area when the car is empty.
 
 
 
