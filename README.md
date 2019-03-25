@@ -4,7 +4,6 @@ Objective:
 Imagine that you decide to drive a taxi for 10 hours each week to earn a little extra money. Explain how you would approach maximizing your income as a taxi driver.
 If you could enrich the dataset, what would you add?  Is there anything in the dataset that you don’t find especially useful?
 
-
 Data:  
 Yellow taxi data dictionary 
 taxi zone lookup table
@@ -29,7 +28,7 @@ I simply create a simple plot that count the everage hourly request per day (uni
 ![Screenshot](hour_heat_map.png)
 
 Based on this heatmap, the best time to work is during weekday evening. Although I have flexible hours, however, I prefer not to split 10 hours to many small intervals.   
-At the same time, I would not want to continue working for more than 4 hours. As a result, my inital working schedule should look like these.
+At the same time, I would not want to continue working for more than 4 hours. As a result, my inital working schedule should look like these.  
 - Tuesday or Friday from 18:00 to 20:00
 - Wednesday and Thursday from 18:00 to 22:00
 
@@ -49,7 +48,37 @@ waiting cost = the waiting time * time cost
 
 Finally, we also want to factorize the distance between the target location and the current location into the reward function. Here I simply use exponential decay of the reward based on the distance simply borrowing some ideas from reinforcement learning.
 
+# Now take friday evening as an example:
+
 Analysis 1: The demand of each location changes through time:
+![Screenshot](Friday_morning.png)
+![Screenshot](Friday_evening.png)
+
+Analysis 2: Airport has high expected total pay, but lower demand. (the high pay_rate is due to data error, there is a fixed pay for airport)
+![Screenshot](Airport_total_pay.png)
+
+# What data to add?
+- The first thing to add is weather data, such as perticipation, temperature, humidity and so forth.  
+- The second thing to add is road construction, or real-time road condition.
+
+# Is there anything in the dataset that you don’t find especially useful?
+There are some data columns are not well recorded, such as drop time. Some columns have outliers.And some other columns are not useful in our analysis such as vendor ID.
+
+# How to improve our model?
+Our current model is a purely statistical model:  
+- P(expected_reward|time,current_location,target_location) = conditional reward  
+Then we rank our destination by the conditional reward  
+
+However, if we have more data source such as weather, citi events, and oil price. It is not possible to have enough data to generate good estimate for these very sparse conditional probability.  
+As a result, we will need to use machine learning algorithms so that we will find hidden correlations and generate good estimates.  
+In other words, we will be building the following model:  
+- f(time, current_location, target_location, weather, etc) = reward
+
+
+
+
+
+
 
 
 
